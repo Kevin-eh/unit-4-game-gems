@@ -13,3 +13,21 @@
   float: left;
   margin: 10px;
 }
+
+.thegoodtext {
+  background-color: lightcyan;
+  opacity: 0.8;
+}
+
+.thebesttext {
+  background-color: lightcyan;
+  opacity: 0.8;
+}
+
+body {
+  background-image: url(../images/background.png);
+}
+
+.playerbox {
+  text-align: center;
+}
