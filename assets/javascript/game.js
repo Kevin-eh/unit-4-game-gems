@@ -1,7 +1,7 @@
-var jigglypuff = $(".jigglypuff");
-var banjo = $(".banjo");
-var plant = $(".plant");
-var wolf = $(".wolf");
+// var jigglypuff = $(".jigglypuff");
+// var banjo = $(".banjo");
+// var plant = $(".plant");
+// var wolf = $(".wolf");
 
 var jigglypuff = {
   name: "Jigglypuff",
@@ -9,7 +9,8 @@ var jigglypuff = {
   strength: 5,
   counterattack: 5,
   alive: true,
-  selected: false
+  selected: false,
+  jquerytag = $(".jigglypuff")
 };
 var banjo = {
   name: "Banjo",
@@ -17,7 +18,9 @@ var banjo = {
   strength: 15,
   counterattack: 15,
   alive: true,
-  selected: false
+  selected: false,
+    jquerytag = $(".banjo")
+
 };
 var plant = {
   name: "Plant",
@@ -41,7 +44,10 @@ $("#bhp").text("hp: " + banjo.hp);
 $("#php").text("hp: " + plant.hp);
 $("#whp").text("hp: " + wolf.hp);
 
-$(".jigglypuff").click(function() {
-  jigglypuff.selected = true;
-  console.log(jigglypuff.selected, jigglypuff.strength);
+$(".charbox").click(function() {
+  $(this).selected = true;
+  console.log(this);
+  console.log(jigglypuff.selected, banjo.selected, jigglypuff.strength);
 });
+
+// $(".charbox").click(function ()
