@@ -2,52 +2,89 @@
 // var banjo = $(".banjo");
 // var plant = $(".plant");
 // var wolf = $(".wolf");
+var wins = 0;
+var losses = 0;
+var targetnum = Math.floor(15 + Math.random() * 50);
+$("#targetnum").prepend(targetnum);
+$("#playernumtext").text(playernum);
+$("#winstext").text("wins: " + wins);
+$("#lossestext").text("losses: " + losses);
 
-var jigglypuff = {
-  name: "Jigglypuff",
-  hp: 100,
-  strength: 5,
-  counterattack: 5,
-  alive: true,
-  selected: false,
-  jquerytag = $(".jigglypuff")
-};
-var banjo = {
-  name: "Banjo",
-  hp: 120,
-  strength: 15,
-  counterattack: 15,
-  alive: true,
-  selected: false,
-    jquerytag = $(".banjo")
+console.log(targetnum);
 
-};
-var plant = {
-  name: "Plant",
-  hp: 110,
-  strength: 10,
-  counterattack: 10,
-  alive: true,
-  selected: false
-};
-var wolf = {
-  name: "Wolf",
-  hp: 90,
-  strength: 20,
-  counterattack: 20,
-  alive: true,
-  selected: false
-};
+var gemval = [
+  Math.floor(3 + Math.random() * 10),
+  Math.floor(3 + Math.random() * 10),
+  Math.floor(3 + Math.random() * 10),
+  Math.floor(3 + Math.random() * 10)
+];
 
-$("#jhp").text("hp: " + jigglypuff.hp);
-$("#bhp").text("hp: " + banjo.hp);
-$("#php").text("hp: " + plant.hp);
-$("#whp").text("hp: " + wolf.hp);
+var playernum = 0;
+console.log(playernum);
+
+$(".peri").click(function() {
+  playernum = playernum + gemval[0];
+  console.log(playernum);
+  $("#playernumtext").text(playernum);
+});
+
+$(".pearl").click(function() {
+  playernum = playernum + gemval[1];
+  console.log(playernum);
+  $("#playernumtext").text(playernum);
+});
+
+$(".lapis").click(function() {
+  playernum = playernum + gemval[2];
+  console.log(playernum);
+  $("#playernumtext").text(playernum);
+});
+
+$(".amy").click(function() {
+  playernum = playernum + gemval[3];
+  console.log(playernum);
+  $("#playernumtext").text(playernum);
+});
+
+console.log(gemval);
 
 $(".charbox").click(function() {
-  $(this).selected = true;
-  console.log(this);
-  console.log(jigglypuff.selected, banjo.selected, jigglypuff.strength);
+  console.log("wow");
+  if (targetnum === playernum) {
+    $("#gameovertext").text("YOU WON YOU ARE A WINNER IM SO PROUD");
+    wins = wins + 1;
+    $("#winstext").text("wins: " + wins);
+    gemval = [
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10)
+    ];
+    playernum = 0;
+    $("#playernumtext").text(playernum);
+    targetnum = Math.floor(15 + Math.random() * 50);
+    $("#targetnum").text(targetnum);
+  } else if (playernum > targetnum) {
+    $("#gameovertext").text("YOU LOST! But don't give up! Try again!");
+    losses = losses + 1;
+    $("#lossestext").text("losses: " + losses);
+    gemval = [
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10),
+      Math.floor(3 + Math.random() * 10)
+    ];
+    playernum = 0;
+    $("#playernumtext").text(playernum);
+    targetnum = Math.floor(15 + Math.random() * 50);
+    $("#targetnum").text(targetnum);
+
+    console.log("oooops");
+  }
 });
+// $(".charbox").click(function() {
+//   $(this).selected = true;
+//   console.log(this);
+// });
 
 // $(".charbox").click(function ()
